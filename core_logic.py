@@ -121,17 +121,17 @@ def validate_input(step, msg, answers, lang):
                     return False, "Type one of: Male, Female, or Other"
                 return True, msg.capitalize()
 
-            case 3 | 4 | 6 | 7:
+            case 3 | 4 | 7 | 8:
                 if len(msg) < 3:
                     return False, "Please enter a valid response."
                 return True, msg
 
-            case 5:
+            case 6:
                 if msg.lower() not in ["fresher", "experienced"]:
                     return False, "Type Fresher or Experienced"
                 return True, msg.lower()
 
-            case 8:
+            case 9:
                 if answers[5] == "experienced":
                     if not msg.isdigit() or int(msg) < 0:
                         return False, "Enter salary as a number (e.g., 30000)"
@@ -139,12 +139,12 @@ def validate_input(step, msg, answers, lang):
                     return False, "Please enter a valid course name."
                 return True, msg
 
-            case 9 | 10 | 14 | 15:
+            case 10 | 12 | 15 | 16:
                 if not msg.isdigit() or not (1950 <= int(msg) <= datetime.now().year):
                     return False, "Enter a valid year (e.g., 2020)"
                 return True, msg
 
-            case 11:
+            case 12:
                 if answers[5] == "experienced":
                     if len(msg) < 2:
                         return False, "Please enter your highest education."
@@ -152,12 +152,12 @@ def validate_input(step, msg, answers, lang):
                     return False, "Choose from: Basic, Intermediate, Fluent"
                 return True, msg.capitalize()
 
-            case 12 | 13:
+            case 13 | 14:
                 if answers[5] == "experienced" and len(msg) < 2:
                     return False, "Please enter a valid response."
                 return True, msg
 
-            case 16:
+            case 17:
                 if msg.lower() not in ["basic", "intermediate", "fluent"]:
                     return False, "Choose from: Basic, Intermediate, Fluent"
                 return True, msg.capitalize()
